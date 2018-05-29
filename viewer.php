@@ -12,7 +12,7 @@ function add_frontend_viewer(){
 	$output = get_option( 'acfv_option_output', $defaults );
 
 	if ( class_exists('FLBuilderModel') && FLBuilderModel::is_builder_active() ) {
-		$acfv_fields = get_fields( get_the_ID() );
+		$acfv_fields = get_fields( FLBuilderModel::get_post_id() );
 	} else {
 		$acfv_fields = get_fields();
 	}
