@@ -12,6 +12,9 @@ If you are working with a large number of fields in [Advanced Custom Fields](htt
 * 3 different color schemes for the front end viewer - Dark, Light, & Transparent.
 * Keyboard shortcuts! `shift` + `v` toggles viewer.
 
+
+* Added ability to view ACF data when in Beaver Builder editor/Beaver Themer.
+
 ### Advanced Features
 
 Use the function `acfv( $array )` to view non ACF arrays in the viewer.

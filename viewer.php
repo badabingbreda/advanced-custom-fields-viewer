@@ -11,7 +11,12 @@ function add_frontend_viewer(){
 	$defaults = array( 'output' => 'print_r' );
 	$output = get_option( 'acfv_option_output', $defaults );
 
-	$acfv_fields = get_fields();
+	if ( class_exists('FLBuilderModel') && FLBuilderModel::is_builder_active() ) {
+		$acfv_fields = get_fields( get_the_ID() );
+	} else {
+		$acfv_fields = get_fields();
+	}
+
 	$acfv_fields_option = get_fields( 'option' );
 
 	$acfv_adminbar = is_admin_bar_showing() ? 'adminbar-visible' : '';
@@ -103,3 +108,4 @@ function acfv_frontend_scripts_and_styles() {
 
 }
 add_action( 'wp_enqueue_scripts', 'acfv_frontend_scripts_and_styles' );
+
