@@ -1,8 +1,25 @@
 <?php
+/**
+ * Set the id that we will get for the fl_builder
+ * @var integer
+ */
+$get_the_id_for_fl_builder = 0;
+
+add_action( 'fl_builder_before_render_nodes' , 'viewer_get_the_id_for_fl_builder' , 20, 1 );
+
+/**
+ * get the queried_object from and save it so we can use it when loading the frontend viewer
+ * @return [type] [description]
+ */
+function viewer_get_the_id_for_fl_builder() {
+	global $get_the_id_for_fl_builder;
+	$get_the_id_for_fl_builder =  get_queried_object()->ID;
+}
 
 function add_frontend_viewer(){
 
 	global $acfv;
+	global $get_the_id_for_fl_builder;
 
 	if ( !is_user_logged_in() || !current_user_can('activate_plugins') ) {
 		return;
@@ -12,7 +29,7 @@ function add_frontend_viewer(){
 	$output = get_option( 'acfv_option_output', $defaults );
 
 	if ( class_exists('FLBuilderModel') && FLBuilderModel::is_builder_active() ) {
-		$acfv_fields = get_fields( FLBuilderModel::get_post_id() );
+		$acfv_fields = get_fields( $get_the_id_for_fl_builder );
 	} else {
 		$acfv_fields = get_fields();
 	}
