@@ -13,7 +13,7 @@ If you are working with a large number of fields in [Advanced Custom Fields](htt
 * Keyboard shortcuts! `shift` + `v` toggles viewer.
 
 
-* Added ability to view ACF data when in Beaver Builder editor/Beaver Themer.
+* Added ability to view ACF data when in Beaver Builder editor/Beaver Themer for posts and archives.
 
 ### Advanced Features
 

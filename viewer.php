@@ -13,7 +13,28 @@ add_action( 'fl_builder_before_render_nodes' , 'viewer_get_the_id_for_fl_builder
  */
 function viewer_get_the_id_for_fl_builder() {
 	global $get_the_id_for_fl_builder;
-	$get_the_id_for_fl_builder =  get_queried_object()->ID;
+
+	// no Themer, return the ID
+	if (!class_exists('FLThemeBuilderRulesLocation')) {
+		$get_the_id_for_fl_builder = get_the_ID();
+		return;
+	}
+
+	// get the location from Themer and get the ID or queried object
+	$location = FLThemeBuilderRulesLocation::get_current_page_location();
+	$re = '/([a-z_]{0,}):/m';
+
+	preg_match($re, $location['location'], $matches);
+
+	switch ( $matches[1]){
+		case "archive":
+			$get_the_id_for_fl_builder = get_the_ID();
+		break;
+		default:
+		case "post":
+			$get_the_id_for_fl_builder = get_queried_object()->ID;
+		break;
+	}
 }
 
 function add_frontend_viewer(){
