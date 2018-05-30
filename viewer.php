@@ -81,6 +81,7 @@ function add_frontend_viewer(){
 					<?php endif; ?>
 
 					<span id="acfv-btn-current" class="acfv-btn">Current Page</span>
+					<span id="acfv-btn-custom" class="acfv-btn">Misc Postid</span>
 					<span id="acfv-btn-options" class="acfv-btn">Options Page</span>
 					<div class="acfv-footer">
 						<a href="<?php echo admin_url( '/options-general.php?page=' . $plugin_dir . '%2Fadmin%2Foptions.php' ); ?>" class="acfv-link">
@@ -110,17 +111,12 @@ function add_frontend_viewer(){
 							echo 'No option has been selected.';
 						}
 					?></pre>
-					<?php if ($acfv != NULL) : ?>
-						<pre id="acfv-custom-viewer"><?php
-							if ( $output['output'] == 'print_r' ) {
-								print_r($acfv);
-							} elseif( $output['output'] == 'var_dump' ) {
-								var_dump($acfv);
-							} else {
-								echo 'No option has been selected.';
-							}
-						?></pre>
-					<?php endif; ?>
+						<pre id="acfv-custom-viewer">
+							<div><label for="postid">Postid</label><input type="text" id="postid" name="postid" placeholder="Enter a postid"><button>Go</button></div>
+							<div id="postidcontent" style="width:auto;height:auto;">Please enter a postid to get the field</div><?php
+						?>
+						</pre>
+
 			    	</td>
 			</tr>
 		</table>
@@ -147,3 +143,29 @@ function acfv_frontend_scripts_and_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'acfv_frontend_scripts_and_styles' );
 
+add_action( 'wp_ajax_get_my_custom_postid' , 'acfv_get_my_custom_postid' );
+
+function acfv_get_my_custom_postid( ) {
+
+	if ( ! defined( 'DOING_AJAX' ) ) {
+		define( 'DOING_AJAX', true );
+	}
+
+	// return a previously set value
+	if (isset( $_GET['p'] )) {
+
+
+			if( get_fields( $_GET['p'] ) ) {
+				ob_start();
+				var_dump( get_fields( $_GET['p'] ) );
+				// json_return fields
+				echo json_encode( ob_get_clean() );
+			} else {
+
+				echo json_encode( "That postid ({$_GET['p']}) doesn't seem to hold any ACF fields." );
+			}
+
+			wp_die();
+	}
+
+}

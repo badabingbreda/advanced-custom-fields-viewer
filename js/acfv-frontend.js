@@ -2,6 +2,7 @@ $j=jQuery.noConflict();
 $j(document).ready(function(){
 
 	$j('#acfv-options-viewer').hide();
+	$j('#acfv-custom-viewer').hide();
 	$j('.acfv-btn-col .acfv-btn:nth-child(3)').addClass("acfv-active");
 
 	if ($j("#acfv-btn-custom").hasClass("acfv-active")) {
@@ -72,4 +73,29 @@ $j(document).ready(function(){
         }
         down[e.keyCode] = false;
     });
+
+    $j('#acfv-custom-viewer button').click( function(e) {
+    	e.preventDefault();
+    	$j('#postidcontent').html(  'trying to fetch postid\'s fields...'  );
+
+    } );
+	function get_postid_fields() {
+	    $j.ajax( {
+								url: ajaxurl + '?action=get_my_custom_postid&p=' + $j('#postid').val(),
+								dataType: 'json',
+							} ).done( function ( response ) {
+								$j('#postidcontent').html(  response  );
+
+							});
+
+	}
+
+    $j('#postid').keypress( function(e){
+	    if(e.keyCode === 13){
+			//write your specific code from here
+	    	get_postid_fields();
+	    }
+	});
+
+
 });

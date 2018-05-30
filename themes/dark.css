@@ -15,7 +15,9 @@ html.acfv-active {
 }
 
 #acfv-current-viewer,
-#acfv-options-viewer {
+#acfv-options-viewer,
+#acfv-custom-viewer {
+
 	margin: 0;
 	padding: 5px;
 }
@@ -28,7 +30,7 @@ html.acfv-active {
 	font-size: 14px;
 	font-family: monospace;
 	height: 100%;
-	width: 80%;
+	width: 60%;
 	top: 0;
 	left: -100%;
 	padding: 10px;
