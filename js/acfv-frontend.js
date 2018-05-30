@@ -74,22 +74,14 @@ $j(document).ready(function(){
         down[e.keyCode] = false;
     });
 
+    // clicking the go button
     $j('#acfv-custom-viewer button').click( function(e) {
     	e.preventDefault();
-    	$j('#postidcontent').html(  'trying to fetch postid\'s fields...'  );
+    	get_postid_fields();
 
     } );
-	function get_postid_fields() {
-	    $j.ajax( {
-								url: ajaxurl + '?action=get_my_custom_postid&p=' + $j('#postid').val(),
-								dataType: 'json',
-							} ).done( function ( response ) {
-								$j('#postidcontent').html(  response  );
 
-							});
-
-	}
-
+    // handle enter key on #postid
     $j('#postid').keypress( function(e){
 	    if(e.keyCode === 13){
 			//write your specific code from here
@@ -97,5 +89,17 @@ $j(document).ready(function(){
 	    }
 	});
 
+	function get_postid_fields() {
+    	$j('#postidcontent').html(  'trying to fetch postid\'s fields...'  );
+	    $j.ajax( {
+								url: ajaxurl + '?action=get_my_custom_postid&p=' + $j('#postid').val(),
+								dataType: 'json',
+								timeout: 10000,
+							} ).done( function ( response ) {
+								$j('#postidcontent').html(  response  );
+
+							});
+
+	}
 
 });
