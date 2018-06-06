@@ -139,12 +139,19 @@ function acfv_frontend_scripts_and_styles() {
 
 	wp_enqueue_style( 'dashicons' );
 	wp_enqueue_script( 'acfv_frontend_js', plugins_url( '/js/acfv-frontend.js', __FILE__ ),array('jquery'),'',true );
+	// localize the script
+    wp_localize_script( 'acfv_frontend_js', 'acfv',
+            array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 
 }
 add_action( 'wp_enqueue_scripts', 'acfv_frontend_scripts_and_styles' );
 
 add_action( 'wp_ajax_get_my_custom_postid' , 'acfv_get_my_custom_postid' );
 
+/**
+ * Get custom post id ACF fields
+ * @return [type] [description]
+ */
 function acfv_get_my_custom_postid( ) {
 
 	if ( ! defined( 'DOING_AJAX' ) ) {

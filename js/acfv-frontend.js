@@ -92,13 +92,15 @@ $j(document).ready(function(){
 	function get_postid_fields() {
     	$j('#postidcontent').html(  'trying to fetch postid\'s fields...'  );
 	    $j.ajax( {
-								url: ajaxurl + '?action=get_my_custom_postid&p=' + $j('#postid').val(),
+								url: acfv.ajaxurl + '?action=get_my_custom_postid&p=' + $j('#postid').val(),
 								dataType: 'json',
 								timeout: 10000,
 							} ).done( function ( response ) {
 								$j('#postidcontent').html(  response  );
 
-							});
+							}).fail( function () {
+								$j('#postidcontent').html( 'The request has failed or timed out.' );
+							} );
 
 	}
 

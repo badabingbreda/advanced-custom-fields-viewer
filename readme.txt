@@ -40,6 +40,15 @@ Contributions are welcome on GitHub. https://github.com/josephfusco/advanced-cus
 
 == Changelog ==
 
+= 1.2.5 =
+* Added localization of script so we can also ajax load fielddata from frontend.
+
+= 1.2.4 =
+* Added Beaver Themer support, page/post/archive layout.
+
+= 1.2.3 =
+* Add Beaver Builder support.
+
 = 1.2.2 =
 * Add composer support.
 
