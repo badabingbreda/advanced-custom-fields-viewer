@@ -15,6 +15,10 @@ If you are working with a large number of fields in [Advanced Custom Fields](htt
 
 * Added ability to view ACF data when in Beaver Builder editor/Beaver Themer for posts and archives.
 
+
 ### Advanced Features
 
-Use the function `acfv( $array )` to view non ACF arrays in the viewer.
+Enter a Misc PostID and view it's Custom Fields and values, if there are any. Uses ajax.
+
+
+#### Please note that this is a modified version of the original, provided by [Joseph Fusco](https://github.com/josephfusco/advanced-custom-fields-viewer/)

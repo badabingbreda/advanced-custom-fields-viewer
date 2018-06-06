@@ -1,5 +1,5 @@
 === Advanced Custom Fields Viewer ===
-Contributors: JoeFusco
+Contributors: JoeFusco, BadabingBreda
 Tags: ACF, Advanced Custom Fields, custom, field, custom field, advanced, preview, viewer, inspect, more fields, repeater, post, type, text, textarea, file, image, edit, admin
 Requires at least: 3.5.0
 Tested up to: 4.9
@@ -17,7 +17,7 @@ If you are working with a large number of fields in Elliot Condon’s Advanced C
 
 * Viewer button hidden until needed in the top left corner of your theme.
 * 3 different color schemes for the front end viewer.
-* Supports viewing of non Advanced Custom Fields arrays! Just use `acfv( $array )`.
+* Bring up a custom postid's Custom Fields. Will use ajax call to load.
 
 = Contributing =
 
@@ -30,24 +30,18 @@ Contributions are welcome on GitHub. https://github.com/josephfusco/advanced-cus
 3. Click on the new menu item `Viewer` for plugin options.
 4. Hover top left of the front of your site to see the toggle button for all available ACF fields for the current page, as well as the options page if available.
 
-== Screenshots ==
-
-1. Plugin Settings
-
-2. Front End Toggle Button
-
-3. Front End Viewer
-
 == Changelog ==
 
 = 1.2.5 =
-* Added localization of script so we can also ajax load fielddata from frontend.
+* Added localization of javascript so we can also ajax load fielddata from frontend.
 
 = 1.2.4 =
 * Added Beaver Themer support, page/post/archive layout.
 
 = 1.2.3 =
 * Add Beaver Builder support.
+
+#### = Forked version =
 
 = 1.2.2 =
 * Add composer support.

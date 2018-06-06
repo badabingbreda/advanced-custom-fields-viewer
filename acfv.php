@@ -2,10 +2,10 @@
 /*
  * Plugin Name: Advanced Custom Fields Viewer
  * Version: 1.2.5
- * Plugin URI: https://wordpress.org/plugins/advanced-custom-fields-viewer/
- * Description: View Advanced Custom Fields data on the front end of your theme while developing. Also works in Beaver Themer.
- * Author: Joseph Fusco, changes for Beaver Builder made by BadabingBreda
- * Author URI: https://josephfus.co/
+ * Plugin URI: https://github.com/badabingbreda/advanced-custom-fields-viewer/
+ * Description: View Advanced Custom Fields data on the front end of your theme while developing. Also works in Beaver Themer. Based on original plugin by Joseph Fusco.
+ * Author: BadabingBreda
+ * Author URI: https://www.beaverplugins.com/
  */
 
 if ( !defined( 'ABSPATH' ) ) exit;
