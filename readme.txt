@@ -32,6 +32,9 @@ Contributions are welcome on GitHub. https://github.com/josephfusco/advanced-cus
 
 == Changelog ==
 
+= 1.2.6 =
+* Set default postid to output on pageload to 0 when not on singular or posts page. Use Misc PostID to get results.
+
 = 1.2.5 =
 * Added localization of javascript so we can also ajax load fielddata from frontend.
 

@@ -30,9 +30,11 @@ function viewer_get_the_id_for_fl_builder() {
 		case "archive":
 			$get_the_id_for_fl_builder = get_the_ID();
 		break;
-		default:
 		case "post":
 			$get_the_id_for_fl_builder = get_queried_object()->ID;
+		break;
+		default:
+			$get_the_id_for_fl_builder = 0;
 		break;
 	}
 }
